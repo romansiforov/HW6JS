@@ -8,52 +8,52 @@ document.write(`
 
 function MyString(someString) {
     this.someString = someString;
+}
 
-    this.reverse = function () {
-        let str = "";
+MyString.prototype.reverse = function () {
+    let str = "";
 
-        for (let i = this.someString.length; i >= 0; i--) {
-            str = str.concat(this.someString.charAt(i));
-        }
-        return str;
+    for (let i = this.someString.length; i >= 0; i--) {
+        str = str.concat(this.someString.charAt(i));
     }
+    return str;
+}
 
-    this.ucWord = function () {
-        let str = "";
+MyString.prototype.ucWord = function () {
+    let str = "";
 
-        for (let i = 0; i < this.someString.length; i++) {
-            if (i == 0) {
-                str = str.concat(this.someString.charAt(i).toUpperCase());
-                continue;
-            }
-            str = str.concat(this.someString.charAt(i));
+    for (let i = 0; i < this.someString.length; i++) {
+        if (i == 0) {
+            str = str.concat(this.someString.charAt(i).toUpperCase());
+            continue;
         }
-        return str;
+        str = str.concat(this.someString.charAt(i));
     }
+    return str;
+}
 
 
 
-    this.ucWords = function () {
-        let str = "";
-        let flag = false;
+MyString.prototype.ucWords = function () {
+    let str = "";
+    let flag = false;
 
-        for (let i = 0; i < this.someString.length; i++) {
-            if (i == 0) {
-                str = str.concat(this.someString.charAt(i).toUpperCase());
-                continue;
-            }
-            if (flag && this.someString.charAt(i) != " ") {
-                str = str.concat(this.someString.charAt(i).toUpperCase());
-                flag = false;
-                continue;
-            }
-            if (this.someString.charAt(i) == " "){
-                flag = true; 
-            }
-            str = str.concat(this.someString.charAt(i));
+    for (let i = 0; i < this.someString.length; i++) {
+        if (i == 0) {
+            str = str.concat(this.someString.charAt(i).toUpperCase());
+            continue;
         }
-        return str;
+        if (flag && this.someString.charAt(i) != " ") {
+            str = str.concat(this.someString.charAt(i).toUpperCase());
+            flag = false;
+            continue;
+        }
+        if (this.someString.charAt(i) == " ") {
+            flag = true;
+        }
+        str = str.concat(this.someString.charAt(i));
     }
+    return str;
 }
 
 const testStr = new MyString("Roman Siforov");
