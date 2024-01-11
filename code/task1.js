@@ -11,14 +11,13 @@ function Worker(name, surname, rate, workDays) {
     this.surname = surname;
     this.rate = rate;
     this.workDays = workDays;
-
-    Worker.prototype.getSalary = function() {
-        return this.rate * this.workDays;
-    }
-
-    Worker.prototype.currency = "$";
 }
 
+Worker.prototype.getSalary = function() {
+    return this.rate * this.workDays;
+}
+
+Worker.prototype.currency = "$";
 
 
 
